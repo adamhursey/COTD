@@ -14,15 +14,26 @@ class App extends React.Component {
 
   componentDidMount() {
     const { params } = this.props.match
+    // reinstate localstorage
+    const localStorageRef = localStorage.getItem(params.storeId)
+    if(localStorageRef){
+      console.log()
+      this.setState({order: JSON.parse(localStorageRef)})
+    }
     this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
       state: 'fishes'
     })
   }
+  
+  componentDidUpdate(){
+    localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
+  }
 
   componentWillUnmount() {
     base.removeBinding(this.ref);
   }
+
   
   addFish = fish => {
     // 1. Take a copy of existing state
