@@ -27,7 +27,8 @@ module.exports = {
         "react/destructuring-assignment": "off",
         "lines-between-class-members": "off",
         "react/prefer-stateless-function": "off",
-        "react/no-access-state-in-setstate": "off"
+        "react/no-access-state-in-setstate": "off",
+        "react/no-this-in-sfc": "off"
 
     }
 }

@@ -5,6 +5,7 @@ import { formatPrice } from '../helpers';
 class Fish extends React.Component {
    static propTypes = {
      addToOrder: PropTypes.func.isRequired,
+     index: PropTypes.string.isRequired,
      details: PropTypes.shape({
        image: PropTypes.string,
        name: PropTypes.string,
